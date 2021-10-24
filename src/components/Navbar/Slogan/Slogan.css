@@ -1,0 +1,22 @@
+.slogan {
+    width: 100%;
+    background-color: black;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.slogan h2 {
+    margin-block-start: 10px;
+    margin-block-end: 10px;
+}
+
+.slogan h2:first-child {
+    color: red;
+}
+
+.slogan h2:last-child {
+    color: white;
+}
