@@ -1,9 +1,11 @@
 import React from 'react'
+import Navbar from './components/Navbar/Navbar'
 
 function App() {
   return (
     <div>
-      <h1>VahanKArt</h1>
+      <Navbar></Navbar>
+      {/* <h1>VahanKArt</h1> */}
     </div>
   )
 }

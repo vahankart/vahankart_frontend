@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import {makeStyles} from "@mui/styles"
 import {ReactComponent as Logo} from './assets/Logo.svg'
 import Search from './Search/Search'
+import Links from './Links/Links'
 
 const useStyles = makeStyles({
     navbarBottom:{
@@ -34,6 +35,7 @@ function Navbar() {
             <div className={classes.navbarBottom}>
                 <Logo></Logo>
                 <Search></Search>
+                <Links></Links>
             </div>
         </Navbar>
     )

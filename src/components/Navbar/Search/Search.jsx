@@ -28,7 +28,7 @@ function Search() {
 
     const Search = styled.div`
         width:50%;
-        height:45px;
+        height:40px;
         padding:3px;
         border:1px solid black;
         display:flex;
