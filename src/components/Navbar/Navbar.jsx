@@ -64,6 +64,7 @@ function Navbar() {
                     <Logo></Logo>
                 </Grid>
 
+                {/* For viewing in mobile only  */}
                 <Grid item xs ={4} md lg className={`${classes.navbarBottomItem} ${classes.viewInMobile}`}>
                     <Links></Links>
                 </Grid>
@@ -71,6 +72,8 @@ function Navbar() {
                 <Grid item xs={12} md={6} lg={6}  className={classes.navbarBottomItem}>
                     <Search></Search>
                 </Grid>
+
+                {/* For viewing in desktop only  */}
                 <Grid item xs ={4} md lg className={`${classes.navbarBottomItem} ${classes.hideInMobile}`}>
                     <Links></Links>
                 </Grid>
