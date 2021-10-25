@@ -1,7 +1,5 @@
-// import { dividerClasses } from '@mui/material'
 import React from 'react';
-import './Footer.css';
-import logoImg from './images/logo.png';
+import {ReactComponent as LogoImg} from './images/logo.svg';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -124,8 +122,8 @@ const Footer = () => {
 
             {/* Logo section */}
             <Grid item spacing={2} className={classes.fgrid} xs={12} md={12} lg={4}>
-                <img className={classes.logoImage} src={logoImg} alt="logo" />
-                    <Typography>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam facilis, dicta excepturi odio corporis commodi alias est! Nulla, vitae magni?</ Typography>
+                <LogoImg className={classes.logoImage}/>
+                <Typography>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam facilis, dicta excepturi odio corporis commodi alias est! Nulla, vitae magni?</ Typography>
                 </Grid>
 
             {/* Social links section */}
