@@ -1,6 +1,6 @@
-import { Button } from "@mui/material";
-import { Container, Grid, Select, TextField } from "@mui/material";
+import { Container, Grid, Select, TextField, Button } from "@material-ui/core";
 import useStyles from "../styles/loginStyle";
+
 function LoginScreen() {
   const classes = useStyles();
 
@@ -25,17 +25,15 @@ function LoginScreen() {
             <div className={classes.content}>
               <form method="POST">
                 <div className="inputTel">
-                  <select className={classes.countryCode}>
-                    <option>📩+91</option>
-                  </select>
-                  <input
-                    type="tel"
-                    className={classes.mobileNo}
-                    placeholder="Mobile number"
-                  />
+                  <Select className={classes.select}></Select>
+                  <TextField type="tel" className={classes.textField} />
                 </div>
                 <div className={classes.btnC}>
-                  <button className={classes.btn}>Continue</button>
+                  <Button
+                    classes={{ root: classes.btn, label: classes.btnLabel }}
+                  >
+                    Continue
+                  </Button>
                 </div>
                 <div className={classes.skip}>
                   <u>Skip</u>

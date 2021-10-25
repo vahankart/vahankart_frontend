@@ -1,4 +1,4 @@
-import { makeStyles } from "@mui/styles";
+import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
   root: {
@@ -30,32 +30,40 @@ const useStyles = makeStyles({
     fontFamily: "monospace",
   },
   select: {
-    borderRightStyle: "none",
-  },
-  countryCode: {
-    width: 70,
     border: "1px solid #aaa",
-    borderRightStyle: "none",
-    outline: "none",
-    height: 34,
-    backgroundColor: "transparent",
+    borderRight: 0,
     borderRadius: "5px 0 0 5px",
+    "&:before": {
+      display: "none",
+    },
+    "&:after": {
+      display: "none",
+    },
   },
-  mobileNo: {
+  textField: {
     border: "1px solid #aaa",
-    borderLeftStyle: "none",
-    outline: "none",
-    height: 30,
-    backgroundColor: "transparent",
+    borderLeft: 0,
     borderRadius: "0 5px 5px 0",
+    "&:before": {
+      content: "none",
+    },
+    "&:after": {
+      content: "none",
+    },
   },
   btn: {
-    backgroundColor: "#f00",
-    border: "none",
+    border: 0,
+    backgroundColor: "red",
     outline: "none",
     width: "245px",
     height: 27,
     borderRadius: 5,
+    "&:hover": {
+      backgroundColor: "#d00",
+    },
+  },
+
+  btnLabel: {
     color: "white",
   },
   btnC: {
