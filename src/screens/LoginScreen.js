@@ -1,8 +1,21 @@
-import { Container, Grid, Select, TextField, Button } from "@material-ui/core";
+import {
+  Container,
+  Grid,
+  Select,
+  TextField,
+  Button,
+  MenuItem,
+} from "@material-ui/core";
 import useStyles from "../styles/loginStyle";
+import { useState } from "react";
 
 function LoginScreen() {
   const classes = useStyles();
+  const [code, setcode] = useState("+91");
+
+  const changeCode = (event) => {
+    setcode(event.target.value);
+  };
 
   return (
     <Container className={classes.root}>
@@ -12,10 +25,10 @@ function LoginScreen() {
         justifyContent="center"
         alignItems="center"
       >
-        <Grid item xs={6}>
+        <Grid item>
           <Container className={classes.grid}></Container>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item>
           <Container className={`${classes.grid} ${classes.form}`}>
             <div className={classes.head}>
               <span className={classes.bold}>Login </span>
@@ -25,7 +38,13 @@ function LoginScreen() {
             <div className={classes.content}>
               <form method="POST">
                 <div className="inputTel">
-                  <Select className={classes.select}></Select>
+                  <Select
+                    className={classes.select}
+                    value={code}
+                    onChange={changeCode}
+                  >
+                    <MenuItem value="+91">😀+91</MenuItem>
+                  </Select>
                   <TextField type="tel" className={classes.textField} />
                 </div>
                 <div className={classes.btnC}>

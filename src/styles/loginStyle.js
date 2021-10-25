@@ -3,13 +3,15 @@ import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles({
   root: {
     //backgroundColor: "red",
+    width: "100%",
   },
   grid: {
     //borderStyle: "solid",
-    height: "45vh",
+    height: "240px",
     margin: "10px 0 10px 0",
-    minWidth: "45vw",
-    width: 500,
+    minWidth: "35%",
+    width: 400,
+    padding: "auto",
   },
   form: {
     backgroundColor: "whitesmoke",
@@ -44,13 +46,16 @@ const useStyles = makeStyles({
     border: "1px solid #aaa",
     borderLeft: 0,
     borderRadius: "0 5px 5px 0",
-    "&:before": {
-      content: "none",
-    },
-    "&:after": {
-      content: "none",
+    "& div": {
+      "&:before": {
+        display: "none",
+      },
+      "&:after": {
+        display: "none",
+      },
     },
   },
+
   btn: {
     border: 0,
     backgroundColor: "red",
