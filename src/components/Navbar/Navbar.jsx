@@ -21,6 +21,17 @@ function Navbar() {
 
     const classes = useStyles()
 
+    const titles = [
+        {
+            statement:"Car se Cart Tak.",
+            color:"red"
+        },
+        {
+            statement:"Free Delivery and Installation",
+            color:"white"
+        }
+    ]
+
     const Navbar = styled.div`
         width: 100%;
         position: fixed;
@@ -31,7 +42,7 @@ function Navbar() {
 
     return (
         <Navbar className="navbar">
-            <Slogan></Slogan>
+            <Slogan titles={titles}></Slogan>
             <div className={classes.navbarBottom}>
                 <Logo></Logo>
                 <Search></Search>

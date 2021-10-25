@@ -13,19 +13,18 @@ const useStyles = makeStyles({
 })
 
 
-function Slogan() {
+function Slogan({titles}) {
 
     const classes = useStyles()
 
     const H2 = styled.h2`
-        color: ${props => props.red? "red" : "white"};
+        color: ${props => props.color};
         margin-block-start:10px;
         margin-block-end:10px;
     `
     return (
         <div className={classes.slogan}>
-            <H2 red>Cart se Car Tak.</H2>     
-            <H2>Free Delivery and Installation</H2>    
+            {titles.map(title => <H2 color={title.color}>{title.statement}</H2> )}
         </div>
     )
 }
