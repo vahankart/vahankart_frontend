@@ -21,6 +21,9 @@ function Slogan({titles}) {
         color: ${props => props.color};
         margin-block-start:10px;
         margin-block-end:10px;
+        @media screen and (max-width:500px){
+            font-size:0.95em;
+        }
     `
     return (
         <div className={classes.slogan}>

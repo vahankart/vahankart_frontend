@@ -14,6 +14,21 @@ const useStyles = makeStyles({
     navbarBottomItem:{
         alignItems: "center",
         justifyContent: "center",
+    },
+    viewInMobile:{
+        display: "none",
+        paddingTop:"7px"
+    },
+    hideInMobile:{
+        display:"block"
+    },
+    "@media screen and (max-width:900px)":{
+        hideInMobile:{
+            display:"none",
+        },
+        viewInMobile:{
+            display:"block"
+        }
     }
 })
 
@@ -43,15 +58,20 @@ function Navbar() {
 
     return (
         <Navbar className="navbar">
-            <Slogan titles={titles}></Slogan>
+            <Slogan titles={titles} className={classes.hideInMobile} ></Slogan>
             <Grid container className={classes.navbarBottom}>
-                <Grid item xs className={classes.navbarBottomItem}>
+                <Grid item xs ={8} md lg className={classes.navbarBottomItem}>
                     <Logo></Logo>
                 </Grid>
-                <Grid item xs={6} className={classes.navbarBottomItem}>
+
+                <Grid item xs ={4} md lg className={`${classes.navbarBottomItem} ${classes.viewInMobile}`}>
+                    <Links></Links>
+                </Grid>
+
+                <Grid item xs={12} md={6} lg={6}  className={classes.navbarBottomItem}>
                     <Search></Search>
                 </Grid>
-                <Grid item xs className={classes.navbarBottomItem}>
+                <Grid item xs ={4} md lg className={`${classes.navbarBottomItem} ${classes.hideInMobile}`}>
                     <Links></Links>
                 </Grid>
             </Grid>
