@@ -27,7 +27,6 @@ function Search() {
     const classes = useStyles()
 
     const Search = styled.div`
-        width:50%;
         height:40px;
         padding:3px;
         border:1px solid black;

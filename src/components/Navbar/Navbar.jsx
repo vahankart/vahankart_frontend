@@ -5,14 +5,15 @@ import {makeStyles} from "@mui/styles"
 import {ReactComponent as Logo} from './assets/Logo.svg'
 import Search from './Search/Search'
 import Links from './Links/Links'
+import Grid from '@mui/material/Grid'
 
 const useStyles = makeStyles({
     navbarBottom:{
-        display:"flex",
-        flexDirection:"row",
-        justifyContent:"space-evenly",
-        alignItems:"center",
         paddingTop:"10px",
+    },
+    navbarBottomItem:{
+        alignItems: "center",
+        justifyContent: "center",
     }
 })
 
@@ -43,11 +44,17 @@ function Navbar() {
     return (
         <Navbar className="navbar">
             <Slogan titles={titles}></Slogan>
-            <div className={classes.navbarBottom}>
-                <Logo></Logo>
-                <Search></Search>
-                <Links></Links>
-            </div>
+            <Grid container className={classes.navbarBottom}>
+                <Grid item xs className={classes.navbarBottomItem}>
+                    <Logo></Logo>
+                </Grid>
+                <Grid item xs={6} className={classes.navbarBottomItem}>
+                    <Search></Search>
+                </Grid>
+                <Grid item xs className={classes.navbarBottomItem}>
+                    <Links></Links>
+                </Grid>
+            </Grid>
         </Navbar>
     )
 }

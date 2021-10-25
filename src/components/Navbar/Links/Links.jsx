@@ -8,6 +8,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
 
 const useStyles = makeStyles({
     linkBox:{
@@ -15,10 +16,19 @@ const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-evenly',
+        alignItems:'center',
+        marginTop: '10px',
         "& > *":{
             padding: '0px 5px',
-            cursor:"pointer"
+            cursor:"pointer",
+            "& > svg":{
+                verticalAlign: 'middle'
+            }
         }
+    },
+    customBadge: {
+        backgroundColor: "#E51515",
+        color: "white"
     }
 })
 
@@ -37,25 +47,40 @@ function Links() {
     };
 
     return (
-        <div className={classes.linkBox} >
+        <Grid 
+            container 
+            className={classes.linkBox} 
+            direction="row"
+            justifyContent="center"
+            alignItems="center" 
+        >
             {/* For user profile page  */}
-           <PersonIcon></PersonIcon>
+            <Grid item xs={2}>
+                <PersonIcon></PersonIcon>
+            </Grid>
 
            {/* For carts page  */}
-            <Badge badgeContent={4} color="primary" >
-                <ShoppingCartIcon />
-            </Badge>
+           <Grid item xs={1}>
+                <Badge 
+                    badgeContent={4} 
+                    classes={{ badge: classes.customBadge }}
+                >
+                    <ShoppingCartIcon />
+                </Badge>
+           </Grid>
 
             {/* For more options  */}
-            <Button
-                aria-controls="basic-menu"
-                aria-haspopup="true"
-                aria-expanded={open ? 'true' : undefined}
-                onClick={handleClick}
-                style={{padding:"0px"}}
-            >
-                <MoreVertIcon/>
-            </Button>
+            <Grid item xs={1}>
+                <Button
+                    aria-controls="basic-menu"
+                    aria-haspopup="true"
+                    aria-expanded={open ? 'true' : undefined}
+                    onClick={handleClick}
+                    style={{padding:"0px"}}
+                >
+                    <MoreVertIcon/>
+                </Button>
+            </Grid>
 
             {/* For the list of more options  */}
             <Menu
@@ -67,7 +92,7 @@ function Links() {
                 <MenuItem onClick={handleClose}>Option 1</MenuItem>
                 <MenuItem onClick={handleClose}>Option 2</MenuItem>
             </Menu>
-        </div>
+        </Grid>
     )
 }
 
