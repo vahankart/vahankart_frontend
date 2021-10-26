@@ -8,10 +8,8 @@ import List from '@mui/material/List';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import { Grid, ListItem, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
-
-// Style variable 
-const dark = '#16181B'
-const red = '#E51515'
+import Newsletter from '../Newsletter/Newsletter'
+import Colors from '../../constants/Color'
 
 const useStyles = makeStyles(theme => ({
     footer : {
@@ -23,7 +21,7 @@ const useStyles = makeStyles(theme => ({
         left: 0,
         width: '100%',
         color: "#ffffff",
-        backgroundColor: dark,
+        backgroundColor: Colors.dark,
         fontFamily: "Open Sans",
         fontSize: 14
     },
@@ -56,33 +54,41 @@ const useStyles = makeStyles(theme => ({
     },
 
     email : {
+        display: "flex",
+        alignItems: "center",
         marginTop: '15px',
-        '& input' : {
-            backgroundColor: dark,
-            color: "#ffffff",
-            outline: "none",
-            padding: "15px",
-            border: `2px solid ${red}`,
-            borderRadius: "7px 0px 0px 7px",
-            width: "60%"
-        },
-
-        '& input::placeholder' : {
-            color: "#ffffff"
-        },
-
-        '& input:focus::placeholder' : {
-            color: "transparent"
-        },
-
         '& button' : {
-            backgroundColor: red,
+            backgroundColor: Colors.primary,
             color: '#ffffff',
             outline: 'none',
             padding: '15px 25px',
             cursor: 'pointer',
-            border: `2px solid ${red}`,
-            borderRadius: '0px 7px 7px 0px'
+            border: `2px solid ${Colors.primary}`,
+            borderRadius: '0px 7px 7px 0px',
+            height: "100%"
+        }
+    },
+
+    input : {
+        
+        backgroundColor: Colors.dark,
+        color: "#ffffff",
+        outline: "none",
+        padding: "7px",
+        border: `2px solid ${Colors.primary}`,
+        borderRadius: "7px 0px 0px 7px",
+        width: "60%",
+
+        '& ::placeholder' : {
+            color: "#ffffff"
+        },
+
+        '& :focus::placeholder' : {
+            color: "transparent"
+        },
+
+        '& input' : {
+            color: "#ffffff"
         }
     },
 
@@ -91,8 +97,16 @@ const useStyles = makeStyles(theme => ({
     },
 
     icons : {
-        color: `${red}`
+        color: `${Colors.primary}`
     }
+
+    // textField : {
+    //     borderColor: `${Colors.primary} !important`
+    // },
+
+    // notchedOutline : {
+    //     borderColor: `${Colors.primary} !important`
+    // }
 
 }))
 
@@ -130,7 +144,7 @@ const Footer = () => {
             <Grid item spacing={2} className={classes.socials} className={classes.fgrid} xs={12} md={6} lg={2}>
                 <List>
                     {socialLinks.map(item => (
-                        <ListItem>
+                        <ListItem key={item.name}>
                             <ListItemIcon>{item.icon}</ListItemIcon>
                             <Link className={classes.links} to={item.link}>{item.name}</Link>  
                         </ListItem>
@@ -141,10 +155,7 @@ const Footer = () => {
             {/* Contact section  */}
             <Grid item spacing={2} className={classes.fgrid} xs={12} md={6} lg={3}>
                 <Link className={classes.links} to="#">Subscribe to our newsletter</ Link>
-                <div className={classes.email}>
-                    <input type="email" name="email" id="" placeholder="Email Address"/>
-                    <button className="okBtn">OK</button>
-                </div>
+                <Newsletter classes={classes}/>
             </Grid>
 
             {/* Info section */}
