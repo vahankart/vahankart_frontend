@@ -4,14 +4,23 @@ const useStyles = makeStyles({
   root: {
     //backgroundColor: "red",
     width: "100%",
+    "@media (max-width:450px)": {
+      margin: 0,
+      padding: 0,
+    },
   },
   grid: {
     //borderStyle: "solid",
     height: "240px",
     margin: "10px 0 10px 0",
-    minWidth: "35%",
     width: 400,
     padding: "auto",
+    "@media (max-width:450px)": {
+      width: "100%",
+      margin: 0,
+      padding: 0,
+      height: "260px",
+    },
   },
   form: {
     backgroundColor: "whitesmoke",
