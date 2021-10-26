@@ -27,7 +27,7 @@ function Slogan({titles}) {
     `
     return (
         <div className={classes.slogan}>
-            {titles.map(title => <H2 color={title.color}>{title.statement}</H2> )}
+            {titles.map((title,index) => <H2 key={index} color={title.color}>{title.statement}</H2> )}
         </div>
     )
 }

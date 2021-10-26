@@ -56,7 +56,7 @@ function Links() {
         >
             {/* For user profile page  */}
             <Grid item xs={2}>
-                <PersonIcon></PersonIcon>
+                <PersonIcon />
             </Grid>
 
            {/* For carts page  */}

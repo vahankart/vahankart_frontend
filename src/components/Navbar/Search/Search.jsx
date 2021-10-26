@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import MicNoneOutlinedIcon from '@mui/icons-material/MicNoneOutlined';
@@ -23,6 +23,7 @@ const useStyles = makeStyles({
 
 
 function Search() {
+    const [searchValue, setSearchValue] = useState('')
 
     const classes = useStyles()
 
@@ -38,15 +39,17 @@ function Search() {
 
     return (
         <Search>
-            <SearchOutlinedIcon className={classes.icon} ></SearchOutlinedIcon>
+            <SearchOutlinedIcon className={classes.icon} />
             <Input 
                 className={classes.input} 
+                value={searchValue}
+                onChange={(e) => setSearchValue(e.target.value)}
                 disableUnderline
                 placeholder={"Search Accessories..."}
-            ></Input>
-            <MicNoneOutlinedIcon className={classes.icon} ></MicNoneOutlinedIcon>
+            />
+            <MicNoneOutlinedIcon className={classes.icon} />
             <span className={classes.scanner} >
-                <PhotoCameraOutlinedIcon className={classes.icon} ></PhotoCameraOutlinedIcon>
+                <PhotoCameraOutlinedIcon className={classes.icon} />
             </span>
         </Search>
     )

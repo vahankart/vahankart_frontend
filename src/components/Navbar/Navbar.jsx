@@ -32,21 +32,22 @@ const useStyles = makeStyles({
     }
 })
 
+const titles = [
+    {
+        statement:"Car se Cart Tak.",
+        color:"red"
+    },
+    {
+        statement:"Free Delivery and Installation",
+        color:"white"
+    }
+]
+
 
 function Navbar() {
 
     const classes = useStyles()
 
-    const titles = [
-        {
-            statement:"Car se Cart Tak.",
-            color:"red"
-        },
-        {
-            statement:"Free Delivery and Installation",
-            color:"white"
-        }
-    ]
 
     const Navbar = styled.div`
         width: 100%;
@@ -61,21 +62,21 @@ function Navbar() {
             <Slogan titles={titles} className={classes.hideInMobile} ></Slogan>
             <Grid container className={classes.navbarBottom}>
                 <Grid item xs ={8} md lg className={classes.navbarBottomItem}>
-                    <Logo></Logo>
+                    <Logo />
                 </Grid>
 
                 {/* For viewing in mobile only  */}
                 <Grid item xs ={4} md lg className={`${classes.navbarBottomItem} ${classes.viewInMobile}`}>
-                    <Links></Links>
+                    <Links />
                 </Grid>
 
                 <Grid item xs={12} md={6} lg={6}  className={classes.navbarBottomItem}>
-                    <Search></Search>
+                    <Search />
                 </Grid>
 
                 {/* For viewing in desktop only  */}
                 <Grid item xs ={4} md lg className={`${classes.navbarBottomItem} ${classes.hideInMobile}`}>
-                    <Links></Links>
+                    <Links />
                 </Grid>
             </Grid>
         </Navbar>
