@@ -12,9 +12,16 @@ import { useState } from "react";
 function LoginScreen() {
   const classes = useStyles();
   const [code, setcode] = useState("+91");
+  const [number, setnumber] = useState("");
 
   const changeCode = (event) => {
     setcode(event.target.value);
+    console.log(code);
+  };
+
+  const changeNo = (event) => {
+    setnumber(event.target.value);
+    console.log(number);
   };
 
   return (
@@ -45,7 +52,12 @@ function LoginScreen() {
                   >
                     <MenuItem value="+91">😀+91</MenuItem>
                   </Select>
-                  <TextField type="tel" className={classes.textField} />
+                  <TextField
+                    type="tel"
+                    className={classes.textField}
+                    value={number}
+                    onChange={changeNo}
+                  />
                 </div>
                 <div className={classes.btnC}>
                   <Button
