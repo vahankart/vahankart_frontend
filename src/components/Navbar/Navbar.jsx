@@ -2,7 +2,7 @@ import React from 'react'
 import Slogan from './Slogan/Slogan'
 import styled from 'styled-components'
 import {makeStyles} from "@mui/styles"
-import {ReactComponent as Logo} from './assets/Logo.svg'
+import {ReactComponent as Logo} from '../../images/logo.svg'
 import Search from './Search/Search'
 import Links from './Links/Links'
 import Grid from '@mui/material/Grid'
@@ -10,6 +10,7 @@ import Grid from '@mui/material/Grid'
 const useStyles = makeStyles({
     navbarBottom:{
         paddingTop:"10px",
+  
     },
     navbarBottomItem:{
         alignItems: "center",
@@ -51,7 +52,6 @@ function Navbar() {
 
     const Navbar = styled.div`
         width: 100%;
-        position: fixed;
         top: 0%;
         display:flex;
         flex-direction:column;
