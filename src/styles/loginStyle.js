@@ -12,7 +12,7 @@ const useStyles = makeStyles({
   },
   grid: {
     //borderStyle: "solid",
-    height: 300,
+    height: 320,
     margin: "auto",
     width: "40vw",
     padding: "auto",
@@ -116,6 +116,57 @@ const useStyles = makeStyles({
   skip: {
     color: "#aaa",
     marginTop: 10,
+    textDecoration: "underline",
+  },
+  otpContainer: {
+    height: 350,
+    minWidth: 500,
+    margin: 20,
+    width: "45vw",
+    backgroundColor: "white",
+    position: "relative",
+    top: "200px",
+    padding: 0,
+    display: "flex",
+    flexDirection: "row",
+    "@media (max-width:450px)": {
+      width: 300,
+      margin: 0,
+      height: "400px",
+    },
+  },
+
+  optForm: {
+    flex: 0.7,
+    margin: "auto",
+  },
+  optSvg: {
+    flex: 0.3,
+    margin: 0,
+    padding: 0,
+    backgroundColor: "transparent",
+    boxShadow: "none",
+    position: "relative",
+    bottom: 55,
+    left: 15,
+    width: 170,
+  },
+
+  otpHead: {
+    fontWeight: "500",
+    fontSize: 25,
+    fontFamily: "monospace",
+  },
+
+  otpInpt: {
+    border: 0,
+    borderBottom: "2px solid #000",
+    fontSize: 25,
+    minWidth: 48,
+    height: 31,
+    marginTop: 30,
+    marginBottom: 25,
+    fontWeight: "bold",
   },
 });
 
