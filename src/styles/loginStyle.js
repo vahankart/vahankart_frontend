@@ -14,7 +14,6 @@ const useStyles = makeStyles({
     //borderStyle: "solid",
     height: 300,
     margin: "auto",
-    marginTop: 20,
     width: "40vw",
     padding: "auto",
     "@media (max-width:450px)": {

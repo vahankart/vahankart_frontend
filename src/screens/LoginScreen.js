@@ -35,7 +35,7 @@ function LoginScreen() {
         justifyContent="center"
         alignItems="center"
       >
-        <Grid item>
+        <Grid item style={{ marginTop: 30 }}>
           <Container className={`${classes.grid} ${classes.svgPos}`}>
             <Card className={classes.svgCard}>
               <CardMedia
