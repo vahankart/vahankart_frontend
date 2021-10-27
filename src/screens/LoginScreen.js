@@ -6,6 +6,8 @@ import {
   Button,
   MenuItem,
   Typography,
+  Card,
+  CardMedia,
 } from "@material-ui/core";
 import useStyles from "../styles/loginStyle";
 import { useState } from "react";
@@ -34,7 +36,16 @@ function LoginScreen() {
         alignItems="center"
       >
         <Grid item>
-          <Container className={classes.grid}></Container>
+          <Container className={`${classes.grid} ${classes.svgPos}`}>
+            <Card className={classes.svgCard}>
+              <CardMedia
+                component="img"
+                height="250"
+                image="/images/Group374.svg"
+                alt="svg"
+              />
+            </Card>
+          </Container>
         </Grid>
         <Grid item>
           <Container className={`${classes.grid} ${classes.form}`}>

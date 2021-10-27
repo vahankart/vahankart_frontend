@@ -12,8 +12,9 @@ const useStyles = makeStyles({
   },
   grid: {
     //borderStyle: "solid",
-    height: "55vh",
+    height: 300,
     margin: "auto",
+    marginTop: 20,
     width: "40vw",
     padding: "auto",
     "@media (max-width:450px)": {
@@ -23,6 +24,20 @@ const useStyles = makeStyles({
       height: "260px",
     },
   },
+  svgPos: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "end",
+  },
+  svgCard: {
+    backgroundColor: "transparent",
+    border: 0,
+    position: "relative",
+    boxShadow: "none",
+    width: 270,
+    height: 250,
+  },
+
   form: {
     backgroundColor: "white",
     textAlign: "center",
