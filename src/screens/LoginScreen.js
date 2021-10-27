@@ -126,9 +126,7 @@ function LoginScreen() {
               />
               <Typography variant="caption">Resend OTP</Typography>
 
-              <Typography className={classes.skip} href="/">
-                Skip
-              </Typography>
+              <Typography className={classes.skip}>Skip</Typography>
             </Container>
             <Container className={classes.optSvg}>
               <Card className={classes.optSvg}>
