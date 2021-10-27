@@ -11,14 +11,14 @@ import {
 } from "@material-ui/core";
 import useStyles from "../styles/loginStyle";
 import { useState } from "react";
-import OtpInput from "react-otp-input";
+// import OtpInput from "react-otp-input";
 
 function LoginScreen() {
   const classes = useStyles();
   const [code, setcode] = useState("+91");
   const [number, setnumber] = useState("");
-  const [showLogin, setshowLogin] = useState(true);
-  const [otp, setotp] = useState();
+  // const [showLogin, setshowLogin] = useState(true);
+  //const [otp, setotp] = useState();
   const changeCode = (event) => {
     setcode(event);
     console.log(code);
@@ -29,13 +29,13 @@ function LoginScreen() {
     console.log(number);
   };
 
-  const displayOTP = () => {
+  /* const displayOTP = () => {
     setshowLogin(false);
-  };
+  }; */
 
-  const changeOTP = (event) => {
+  /* const changeOTP = (event) => {
     setotp(event);
-  };
+  }; */
 
   return (
     <Container className={classes.root}>
@@ -47,7 +47,7 @@ function LoginScreen() {
       >
         <Grid
           item
-          style={{ marginTop: 30, display: showLogin ? "flex" : "none" }}
+          /* style={{ marginTop: 30, display: showLogin ? "flex" : "none" }} */
         >
           <Container className={`${classes.grid} ${classes.svgPos}`}>
             <Card className={classes.svgCard}>
@@ -60,7 +60,7 @@ function LoginScreen() {
             </Card>
           </Container>
         </Grid>
-        <Grid item style={{ display: showLogin ? "flex" : "none" }}>
+        <Grid item /* style={{ display: showLogin ? "flex" : "none" }} */>
           <Container className={`${classes.grid} ${classes.form}`}>
             <div className={classes.head}>
               <Typography
@@ -96,7 +96,6 @@ function LoginScreen() {
                 <div className={classes.btnC}>
                   <Button
                     classes={{ root: classes.btn, label: classes.btnLabel }}
-                    onClick={displayOTP}
                   >
                     Continue
                   </Button>
@@ -109,7 +108,7 @@ function LoginScreen() {
 
         {/* OTP FORM */}
 
-        <Grid item style={{ display: showLogin ? "none" : "flex" }}>
+        {/* <Grid item style={{ display: showLogin ? "none" : "flex" }}>
           <Container className={classes.otpContainer}>
             <Container className={classes.optForm}>
               <Typography variant="h5" className={classes.optHead}>
@@ -139,7 +138,7 @@ function LoginScreen() {
               </Card>
             </Container>
           </Container>
-        </Grid>
+        </Grid> */}
       </Grid>
     </Container>
   );
