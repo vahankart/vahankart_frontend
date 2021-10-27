@@ -85,6 +85,7 @@ const useStyles = makeStyles({
     height: 40,
     borderRadius: 5,
     textTransform: "none",
+    margin: 10,
     "&:hover": {
       backgroundColor: "#d00",
     },
