@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles({
   root: {
     //backgroundColor: "red",
+    height: "120vh",
     width: "100%",
     "@media (max-width:450px)": {
       margin: 0,
@@ -11,19 +12,19 @@ const useStyles = makeStyles({
   },
   grid: {
     //borderStyle: "solid",
-    height: "240px",
-    margin: "10px 0 10px 0",
-    width: 400,
+    height: "55vh",
+    margin: "auto",
+    width: "40vw",
     padding: "auto",
     "@media (max-width:450px)": {
-      width: "100%",
+      width: 300,
       margin: 0,
       padding: 0,
       height: "260px",
     },
   },
   form: {
-    backgroundColor: "whitesmoke",
+    backgroundColor: "white",
     textAlign: "center",
     padding: 10,
   },
@@ -37,13 +38,19 @@ const useStyles = makeStyles({
   },
   bold: {
     fontWeight: 700,
-    fontSize: 20,
+    fontSize: 25,
     fontFamily: "monospace",
   },
   select: {
     border: "1px solid #aaa",
     borderRight: 0,
     borderRadius: "5px 0 0 5px",
+    width: "15%",
+    height: 52,
+    padding: 0,
+    "& .MuiSelect-select": {
+      paddingRight: 5,
+    },
     "&:before": {
       display: "none",
     },
@@ -55,7 +62,12 @@ const useStyles = makeStyles({
     border: "1px solid #aaa",
     borderLeft: 0,
     borderRadius: "0 5px 5px 0",
+    width: "45%",
+    height: 50,
     "& div": {
+      color: "#aaa",
+      paddingLeft: "10px",
+      paddingTop: "10px",
       "&:before": {
         display: "none",
       },
@@ -67,11 +79,12 @@ const useStyles = makeStyles({
 
   btn: {
     border: 0,
-    backgroundColor: "red",
+    backgroundColor: "#d00",
     outline: "none",
-    width: "245px",
-    height: 27,
+    width: "60%",
+    height: 40,
     borderRadius: 5,
+    textTransform: "none",
     "&:hover": {
       backgroundColor: "#d00",
     },
@@ -79,6 +92,8 @@ const useStyles = makeStyles({
 
   btnLabel: {
     color: "white",
+    fontWeight: "bold",
+    fontVariantCaps: "normal",
   },
   btnC: {
     marginTop: "30px",

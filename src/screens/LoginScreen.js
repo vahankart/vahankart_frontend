@@ -5,6 +5,7 @@ import {
   TextField,
   Button,
   MenuItem,
+  Typography,
 } from "@material-ui/core";
 import useStyles from "../styles/loginStyle";
 import { useState } from "react";
@@ -38,9 +39,17 @@ function LoginScreen() {
         <Grid item>
           <Container className={`${classes.grid} ${classes.form}`}>
             <div className={classes.head}>
-              <span className={classes.bold}>Login </span>
-              <span> or</span>
-              <span className={classes.bold}> SignUp</span>
+              <Typography
+                variant="h1"
+                display="inline"
+                className={classes.bold}
+              >
+                Login
+              </Typography>
+              <Typography display="inline"> or </Typography>
+              <Typography display="inline" className={classes.bold}>
+                Sign Up
+              </Typography>
             </div>
             <div className={classes.content}>
               <form method="POST">
@@ -50,13 +59,14 @@ function LoginScreen() {
                     value={code}
                     onChange={changeCode}
                   >
-                    <MenuItem value="+91">😀+91</MenuItem>
+                    <MenuItem value="+91"> +91</MenuItem>
                   </Select>
                   <TextField
                     type="tel"
                     className={classes.textField}
                     value={number}
                     onChange={changeNo}
+                    placeholder="Mobile number"
                   />
                 </div>
                 <div className={classes.btnC}>
