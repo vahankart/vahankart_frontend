@@ -1,7 +1,8 @@
 import { Input } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 
 function Newsletter({classes}) {
+    const [Email, setEmail] = useState("")
 
     return (
         <div className={classes.email}>
@@ -9,6 +10,8 @@ function Newsletter({classes}) {
                 className={classes.input} 
                 placeholder="Email Address" 
                 disableUnderline
+                value={Email}
+                onChange={(e) => setEmail(e.target.value)}
             />
             <button className="okBtn">OK</button>
         </div>

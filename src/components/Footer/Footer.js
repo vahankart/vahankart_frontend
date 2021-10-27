@@ -1,5 +1,5 @@
 import React from 'react';
-import {ReactComponent as LogoImg} from './images/logo.svg';
+import {ReactComponent as LogoImg} from '../../images/logo.svg';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -110,6 +110,8 @@ const useStyles = makeStyles(theme => ({
 
 }))
 
+
+
 const Footer = () => {
     const classes = useStyles();
 
@@ -130,6 +132,7 @@ const Footer = () => {
             link : '#'
         }
     ]
+ 
 
     return (
         <Grid container className={classes.footer} spacing={0}>
