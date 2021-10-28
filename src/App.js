@@ -5,7 +5,6 @@ import useStyles from "./styles/style";
 import OtpScreen from "./screens/OtpScreen";
 
 function App() {
-  const classes = useStyles();
   return (
     <>
       <OtpScreen />
