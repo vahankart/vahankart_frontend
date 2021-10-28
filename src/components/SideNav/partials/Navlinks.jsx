@@ -5,6 +5,7 @@ const Navlinks = styled.div`
     height: 50px;
     justify-content: center;
     background-color: #FFFFFF;
+    cursor: pointer;
     ${props => {
         if (props.top) {
             return "border-radius: 0px 0px 30px 0px;"       

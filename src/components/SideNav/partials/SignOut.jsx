@@ -8,6 +8,7 @@ const Signout = styled.div`
     color: #E51515;
     position: absolute;
     bottom: 0px;
+    cursor: pointer;
 `
 
 

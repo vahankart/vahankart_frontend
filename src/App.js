@@ -10,7 +10,6 @@ function App() {
       <div className="App">
         <Navbar />
         <SideNav />
-        {/* <h1>VahanKArt</h1> */}
         <Footer/>
       </div>
     </Router>

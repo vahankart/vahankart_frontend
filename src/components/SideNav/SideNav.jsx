@@ -10,7 +10,7 @@ import PersonIcon from '@mui/icons-material/Person'
 import BookIcon from '@mui/icons-material/Book'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import FavoriteIcon from '@mui/icons-material/Favorite'
-import SignoutIcon from './assests/signout.svg'
+import SignoutIcon from '../../images/signout.svg'
 
 
 const SideNav =()=> {
@@ -39,9 +39,9 @@ const SideNav =()=> {
             </Wrapper>
             <Signout>
                 <SpanText>
-                    <img src={SignoutIcon}/>
+                    <img src={SignoutIcon} alt='Signout'/>
                 </SpanText>
-                <SpanText>  SIGN OUT</SpanText>
+                <SpanText>SIGN OUT</SpanText>
             </Signout>
         </Root>
     )
