@@ -1,10 +1,34 @@
-import { Button } from "@mui/material";
-import { Container, Grid, Select, TextField } from "@mui/material";
+import {
+  Container,
+  Grid,
+  Select,
+  TextField,
+  Button,
+  MenuItem,
+  Typography,
+  Card,
+  CardMedia,
+} from "@material-ui/core";
 import useStyles from "../styles/loginStyle";
+import { useState } from "react";
+
+
 function LoginScreen() {
   const classes = useStyles();
+  const [code, setcode] = useState("+91");
+  const [number, setnumber] = useState("");
+
+  const changeCode = (event) => {
+    setcode(event);
+  };
+
+  const changeNo = (event) => {
+    setnumber(event.target.value);
+  };
 
   return (
+
+    <div className={classes.parent}>
     <Container className={classes.root}>
       <Grid
         container
@@ -12,40 +36,66 @@ function LoginScreen() {
         justifyContent="center"
         alignItems="center"
       >
-        <Grid item xs={6}>
-          <Container className={classes.grid}></Container>
+        <Grid item>
+          <Container className={`${classes.grid} ${classes.svgPos}`}>
+            <Card className={classes.svgCard}>
+              <CardMedia
+                component="img"
+                height="250"
+                image="/images/Group374.svg"
+                alt="svg"
+              />
+            </Card>
+          </Container>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item >
           <Container className={`${classes.grid} ${classes.form}`}>
             <div className={classes.head}>
-              <span className={classes.bold}>Login </span>
-              <span> or</span>
-              <span className={classes.bold}> SignUp</span>
+              <Typography
+                variant="h1"
+                display="inline"
+                className={classes.bold}
+              >
+                Login
+              </Typography>
+              <Typography display="inline"> or </Typography>
+              <Typography display="inline" className={classes.bold}>
+                Sign Up
+              </Typography>
             </div>
             <div className={classes.content}>
               <form method="POST">
                 <div className="inputTel">
-                  <select className={classes.countryCode}>
-                    <option>📩+91</option>
-                  </select>
-                  <input
+                  <Select
+                    className={classes.select}
+                    value={code}
+                    onChange={changeCode}
+                  >
+                    <MenuItem value="+91"> +91</MenuItem>
+                  </Select>
+                  <TextField
                     type="tel"
-                    className={classes.mobileNo}
+                    className={classes.textField}
+                    value={number}
+                    onChange={changeNo}
                     placeholder="Mobile number"
                   />
                 </div>
                 <div className={classes.btnC}>
-                  <button className={classes.btn}>Continue</button>
+                  <Button
+                    classes={{ root: classes.btn, label: classes.btnLabel }}
+                  >
+                    Continue
+                  </Button>
                 </div>
-                <div className={classes.skip}>
-                  <u>Skip</u>
-                </div>
+                <Typography className={classes.skip}>Skip</Typography>
               </form>
             </div>
           </Container>
         </Grid>
       </Grid>
     </Container>
+    </div>
   );
 }
 
