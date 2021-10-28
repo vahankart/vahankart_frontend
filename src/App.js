@@ -7,10 +7,10 @@ import OtpScreen from "./screens/OtpScreen";
 function App() {
   const classes = useStyles();
   return (
-    <Container maxWidth="xl" className={classes.root}>
+    <>
       <OtpScreen />
-      {/* <LoginScreen */}
-    </Container>
+      {/* <LoginScreen /> */}
+    </>
   );
 }
 

@@ -1,8 +1,12 @@
 import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
+  parent:{
+    backgroundColor: "#E8DEF1",
+    height: "100vh",
+  },
   root: {
-    //backgroundColor: "red",
+   
     height: "120vh",
     width: "100%",
     "@media (max-width:450px)": {
@@ -25,16 +29,16 @@ const useStyles = makeStyles({
   },
   svgPos: {
     display: "flex",
+    flexDirection: "row",
     justifyContent: "center",
-    alignItems: "end",
+    alignItems: "center",
   },
   svgCard: {
     backgroundColor: "transparent",
     border: 0,
     position: "relative",
     boxShadow: "none",
-    width: 270,
-    height: 250,
+    marginBottom: "-4rem",
   },
 
   form: {

@@ -17,13 +17,17 @@ function OtpScreen() {
     setotp(event);
   };
   return (
+    <div       className={classes.parent}>
+
+
     <Grid
       container
       direction="column"
       justifyContent="center"
       alignItems="center"
+
     >
-      <Grid item>
+      <Grid item >
         <Container className={classes.otpContainer}>
           <Container className={classes.optForm}>
             <Typography variant="h5" className={classes.optHead}>
@@ -55,6 +59,8 @@ function OtpScreen() {
         </Container>
       </Grid>
     </Grid>
+    </div>
+
   );
 }
 

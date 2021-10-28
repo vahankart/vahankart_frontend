@@ -11,33 +11,24 @@ import {
 } from "@material-ui/core";
 import useStyles from "../styles/loginStyle";
 import { useState } from "react";
-// import OtpInput from "react-otp-input";
+
 
 function LoginScreen() {
   const classes = useStyles();
   const [code, setcode] = useState("+91");
   const [number, setnumber] = useState("");
-  // const [showLogin, setshowLogin] = useState(true);
-  //const [otp, setotp] = useState();
+
   const changeCode = (event) => {
     setcode(event);
-    console.log(code);
   };
 
   const changeNo = (event) => {
     setnumber(event.target.value);
-    console.log(number);
   };
 
-  /* const displayOTP = () => {
-    setshowLogin(false);
-  }; */
-
-  /* const changeOTP = (event) => {
-    setotp(event);
-  }; */
-
   return (
+
+    <div className={classes.parent}>
     <Container className={classes.root}>
       <Grid
         container
@@ -45,10 +36,7 @@ function LoginScreen() {
         justifyContent="center"
         alignItems="center"
       >
-        <Grid
-          item
-          /* style={{ marginTop: 30, display: showLogin ? "flex" : "none" }} */
-        >
+        <Grid item>
           <Container className={`${classes.grid} ${classes.svgPos}`}>
             <Card className={classes.svgCard}>
               <CardMedia
@@ -60,7 +48,7 @@ function LoginScreen() {
             </Card>
           </Container>
         </Grid>
-        <Grid item /* style={{ display: showLogin ? "flex" : "none" }} */>
+        <Grid item >
           <Container className={`${classes.grid} ${classes.form}`}>
             <div className={classes.head}>
               <Typography
@@ -105,42 +93,9 @@ function LoginScreen() {
             </div>
           </Container>
         </Grid>
-
-        {/* OTP FORM */}
-
-        {/* <Grid item style={{ display: showLogin ? "none" : "flex" }}>
-          <Container className={classes.otpContainer}>
-            <Container className={classes.optForm}>
-              <Typography variant="h5" className={classes.optHead}>
-                Verify with OTP
-              </Typography>
-
-              <OtpInput
-                inputStyle={classes.otpInpt}
-                value={otp}
-                onChange={changeOTP}
-                numInputs={4}
-                separator={<span>&nbsp;&nbsp;</span>}
-                placeholder="6666"
-              />
-              <Typography variant="caption">Resend OTP</Typography>
-
-              <Typography className={classes.skip}>Skip</Typography>
-            </Container>
-            <Container className={classes.optSvg}>
-              <Card className={classes.optSvg}>
-                <CardMedia
-                  component="img"
-                  height="470"
-                  image="/images/Group370.svg"
-                  alt="svg"
-                />
-              </Card>
-            </Container>
-          </Container>
-        </Grid> */}
       </Grid>
     </Container>
+    </div>
   );
 }
 
