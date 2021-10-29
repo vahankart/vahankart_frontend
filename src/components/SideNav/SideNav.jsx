@@ -1,11 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Root from './partials/Root'
 import HeadingText from './partials/Headingtext'
 import Navlinks from './partials/Navlinks'
-import NavlinksActive from './partials/NavlinksActive'
 import SpanText from './partials/SpanText'
 import Wrapper from './partials/Wrapper'
 import Signout from './partials/SignOut'
+import Main from './partials/Main'
+import Nav from './partials/Nav'
 import PersonIcon from '@mui/icons-material/Person'
 import BookIcon from '@mui/icons-material/Book'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
@@ -14,35 +15,69 @@ import SignoutIcon from '../../images/signout.svg'
 
 
 const SideNav =()=> {
+    const [account, setaccount] = useState('active')
+    const [address, setaddress] = useState('under')
+    const [myoOder, setMyOrder] = useState('normal')
+    const [favorite, setfavorite] = useState('normal')
+
+    const changePage = (e)=>{
+        if (e === 'account') {
+            setaccount('active')
+            setaddress('under')
+            setMyOrder('normal')
+            setfavorite('normal')
+        } else if(e === 'address'){
+            setaccount('top')
+            setaddress('active')
+            setMyOrder('under')
+            setfavorite('normal')
+        } else if(e === 'order'){
+            setaccount('normal')
+            setaddress('top')
+            setMyOrder('active')
+            setfavorite('under')
+        } else if(e === 'favorite'){
+            setaccount('normal')
+            setaddress('normal')
+            setMyOrder('top')
+            setfavorite('active')
+        }
+    }
+
     return (
         <Root>
-            <HeadingText>
-                ACCOUNT DASHBOARD
-            </HeadingText>
-            <Wrapper>
-                <Navlinks>
-                    <SpanText><PersonIcon sx={{ fontSize: 25}}/>  </SpanText>
-                    <SpanText>Account Information</SpanText>
-                </Navlinks>
-                <Navlinks top>
-                    <SpanText><BookIcon sx={{ fontSize: 25}}/>  </SpanText>
-                    <SpanText>Address Book</SpanText>
-                </Navlinks>
-                <NavlinksActive>
-                    <SpanText><ShoppingCartIcon sx={{ fontSize: 25}}/>  </SpanText>
-                    <SpanText>My Orders</SpanText>
-                </NavlinksActive>
-                <Navlinks under>
-                    <SpanText><FavoriteIcon sx={{ fontSize: 25}}/>  </SpanText>
-                    <SpanText>My Favorites</SpanText>
-                </Navlinks>
-            </Wrapper>
-            <Signout>
-                <SpanText>
-                    <img src={SignoutIcon} alt='Signout'/>
-                </SpanText>
-                <SpanText>SIGN OUT</SpanText>
-            </Signout>
+            <Nav>
+                <HeadingText>
+                    ACCOUNT DASHBOARD
+                </HeadingText>
+                <Wrapper>
+                    <Navlinks st={account} onClick={()=>changePage('account')}>
+                        <SpanText><PersonIcon sx={{ fontSize: 25}}/>  </SpanText>
+                        <SpanText>Account Information</SpanText>
+                    </Navlinks>
+                    <Navlinks st={address} onClick={()=>changePage('address')}>
+                        <SpanText><BookIcon sx={{ fontSize: 25}}/>  </SpanText>
+                        <SpanText>Address Book</SpanText>
+                    </Navlinks>
+                    <Navlinks st={myoOder} onClick={()=>changePage('order')}>
+                        <SpanText><ShoppingCartIcon sx={{ fontSize: 25}}/>  </SpanText>
+                        <SpanText>My Orders</SpanText>
+                    </Navlinks>
+                    <Navlinks st={favorite} onClick={()=>changePage('favorite')}>
+                        <SpanText><FavoriteIcon sx={{ fontSize: 25}}/>  </SpanText>
+                        <SpanText>My Favorites</SpanText>
+                    </Navlinks>
+                </Wrapper>
+                <Signout>
+                    <SpanText>
+                        <img src={SignoutIcon} alt='Signout'/>
+                    </SpanText>
+                    <SpanText>SIGN OUT</SpanText>
+                </Signout>
+            </Nav>
+            <Main>
+                <h1>My Orders</h1>
+            </Main>
         </Root>
     )
 }
