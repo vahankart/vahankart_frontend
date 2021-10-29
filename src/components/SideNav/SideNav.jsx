@@ -15,32 +15,42 @@ import SignoutIcon from '../../images/signout.svg'
 
 
 const SideNav =()=> {
+    const [first, setfirst] = useState('top')
     const [account, setaccount] = useState('active')
     const [address, setaddress] = useState('under')
     const [myoOder, setMyOrder] = useState('normal')
     const [favorite, setfavorite] = useState('normal')
+    const [last, setlast] = useState('normal')
 
     const changePage = (e)=>{
         if (e === 'account') {
+            setfirst('top')
             setaccount('active')
             setaddress('under')
             setMyOrder('normal')
             setfavorite('normal')
+            setlast('normal')
         } else if(e === 'address'){
+            setfirst('normal')
             setaccount('top')
             setaddress('active')
             setMyOrder('under')
             setfavorite('normal')
+            setlast('normal')
         } else if(e === 'order'){
+            setfirst('normal')
             setaccount('normal')
             setaddress('top')
             setMyOrder('active')
             setfavorite('under')
+            setlast('normal')
         } else if(e === 'favorite'){
+            setfirst('normal')
             setaccount('normal')
             setaddress('normal')
             setMyOrder('top')
             setfavorite('active')
+            setlast('under')
         }
     }
 
@@ -51,6 +61,8 @@ const SideNav =()=> {
                     ACCOUNT DASHBOARD
                 </HeadingText>
                 <Wrapper>
+                    <Navlinks st={first} onClick={()=>changePage('first')}>
+                    </Navlinks>
                     <Navlinks st={account} onClick={()=>changePage('account')}>
                         <SpanText><PersonIcon sx={{ fontSize: 25}}/>  </SpanText>
                         <SpanText>Account Information</SpanText>
@@ -66,6 +78,8 @@ const SideNav =()=> {
                     <Navlinks st={favorite} onClick={()=>changePage('favorite')}>
                         <SpanText><FavoriteIcon sx={{ fontSize: 25}}/>  </SpanText>
                         <SpanText>My Favorites</SpanText>
+                    </Navlinks>
+                    <Navlinks st={last} onClick={()=>changePage('last')}>
                     </Navlinks>
                 </Wrapper>
                 <Signout>
