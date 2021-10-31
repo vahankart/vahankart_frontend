@@ -5,6 +5,7 @@ import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import FiberManualRecordTwoToneIcon from '@mui/icons-material/FiberManualRecordTwoTone';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import {makeStyles} from '@mui/styles';
+import {Typography} from '@mui/material';
 
 
 const useStyles = makeStyles(theme => ({
@@ -18,8 +19,8 @@ const useStyles = makeStyles(theme => ({
         overflow: "hidden"
     },
     sliderImage: {
-        width: "100%",
-        height: "40%"   
+        maxWidth: "100%",
+        maxHeight: "100%",
     },
     rightArrow: {
         position: "absolute",
@@ -58,8 +59,39 @@ const useStyles = makeStyles(theme => ({
         left: "50%",
         transform: "translateX(-50%)",
         display:"flex",
-        color: "white"
+        color: "white",
+        '& div svg':{
+            width: "0.7em",
+            height: "0.7em"
+        }
     },
+    sliderBtn : {
+        position: "absolute",
+        zIndex: "20",
+        top: "67%",
+        left: "10%",
+        padding:"1rem 4rem",
+        borderRadius: "0px",
+        border: "0px",
+        fontWeight: "bold"
+    },
+    slideHeading:{
+        position: "absolute",
+        zIndex: "10",
+        top: "40%",
+        color: "white",
+        left: "10%",
+        fontWeight: "bold"
+    },
+    slideSubHeading: {
+        position: "absolute",
+        zIndex: "10",
+        top: "50%",
+        left: "10%",
+        color: "white",
+        width: "35%",
+        fontSize: "13px"
+    }
 }))
 
 
@@ -80,9 +112,6 @@ const ImageSlider = () => {
         setCurrent(index);
     }
 
-    console.log(current);
-
-
     if(!Array.isArray(SliderData) || SliderData.length <= 0){
         return null;
     }
@@ -93,15 +122,38 @@ const ImageSlider = () => {
             <NavigateNextIcon className={classes.rightArrow} onClick={nextSlide}/>
             {SliderData.map((slide, index) => {
                 return (
-                    <div className={index === current ? classes.activeSlide : classes.slide} key={index}>
-                        {index === current && (<img src={slide.image} alt="image" className={classes.sliderImage} />)}
+                    index === current && (
+                        <div className={index === current ? classes.activeSlide : classes.slide} key={index}>
+                            <img src={slide.image} alt="image" className={classes.sliderImage} />
+
+                            <Typography 
+                            className={classes.slideHeading}
+                            variant="h2" 
+                            gutterBottom 
+                            component="div"
+                            >
+                            {slide.heading}
+                            </Typography>
+
+                            <Typography
+                            className={classes.slideSubHeading} 
+                            >
+                            {slide.subheading}
+                            </Typography>
+
+                            {(slide.button !== "" && (
+                                <button className={classes.sliderBtn}>Buy now!</button>                        
+                            ))
+                            }
+                        </div>
+                    )
                         
-                    </div>
                 )
             })}
             <div className = {classes.containerDots}>
                 {Array.from({length: SliderData.length}).map((item, index) => (
                     <div
+                    key = {index}
                     onClick={()=> moveDot(index)}
                     >
                         {current === index ? <FiberManualRecordIcon /> : <FiberManualRecordTwoToneIcon / >}
