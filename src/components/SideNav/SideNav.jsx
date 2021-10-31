@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
-import Root from './partials/Root'
-import HeadingText from './partials/Headingtext'
-import Navlinks from './partials/Navlinks'
-import SpanText from './partials/SpanText'
-import Wrapper from './partials/Wrapper'
-import Signout from './partials/SignOut'
+import Root from './partials/nav/Root'
+import HeadingText from './partials/nav/Headingtext'
+import Navlinks from './partials/nav/Navlinks'
+import SpanText from './partials/nav/SpanText'
+import Wrapper from './partials/nav/Wrapper'
+import Signout from './partials/nav/SignOut'
 import Main from './partials/Main'
-import Nav from './partials/Nav'
+import Nav from './partials/nav/Nav'
 import PersonIcon from '@mui/icons-material/Person'
 import BookIcon from '@mui/icons-material/Book'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
@@ -21,6 +21,7 @@ const SideNav =()=> {
     const [myoOder, setMyOrder] = useState('normal')
     const [favorite, setfavorite] = useState('normal')
     const [last, setlast] = useState('normal')
+    const [mainView, setmainView] = useState('account')
 
     const changePage = (e)=>{
         if (e === 'account') {
@@ -30,6 +31,7 @@ const SideNav =()=> {
             setMyOrder('normal')
             setfavorite('normal')
             setlast('normal')
+            setmainView('account')
         } else if(e === 'address'){
             setfirst('normal')
             setaccount('top')
@@ -37,6 +39,7 @@ const SideNav =()=> {
             setMyOrder('under')
             setfavorite('normal')
             setlast('normal')
+            setmainView('address')
         } else if(e === 'order'){
             setfirst('normal')
             setaccount('normal')
@@ -44,6 +47,7 @@ const SideNav =()=> {
             setMyOrder('active')
             setfavorite('under')
             setlast('normal')
+            setmainView('order')
         } else if(e === 'favorite'){
             setfirst('normal')
             setaccount('normal')
@@ -51,9 +55,10 @@ const SideNav =()=> {
             setMyOrder('top')
             setfavorite('active')
             setlast('under')
+            setmainView('favorite')
         }
     }
-
+    // console.log(mainView)
     return (
         <Root>
             <Nav>
@@ -89,9 +94,7 @@ const SideNav =()=> {
                     <SpanText>SIGN OUT</SpanText>
                 </Signout>
             </Nav>
-            <Main>
-                <h1>My Orders</h1>
-            </Main>
+            <Main currentPage={mainView}/>
         </Root>
     )
 }
