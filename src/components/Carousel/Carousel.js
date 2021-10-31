@@ -47,7 +47,6 @@ const useStyles = makeStyles(theme => ({
     activeSlide : {
         opacity: "1",
         transitionDuration:"1s",
-        transform: "scale(1.08)"
     },
     slide : {
         opacity: "0",
@@ -71,14 +70,19 @@ const useStyles = makeStyles(theme => ({
         top: "67%",
         left: "10%",
         padding:"1rem 4rem",
-        borderRadius: "0px",
-        border: "0px",
-        fontWeight: "bold"
+        border: "2px solid white",
+        fontWeight: "bold",
+        transitionDuration: "0.5s",
+        '&:hover' : {
+            background: "transparent",
+            border: "2px solid white",
+            color: "white"
+        }
     },
     slideHeading:{
         position: "absolute",
         zIndex: "10",
-        top: "40%",
+        top: "30%",
         color: "white",
         left: "10%",
         fontWeight: "bold"
@@ -86,7 +90,7 @@ const useStyles = makeStyles(theme => ({
     slideSubHeading: {
         position: "absolute",
         zIndex: "10",
-        top: "50%",
+        top: "45%",
         left: "10%",
         color: "white",
         width: "35%",
