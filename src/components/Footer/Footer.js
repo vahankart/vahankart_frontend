@@ -16,7 +16,6 @@ const useStyles = makeStyles(theme => ({
         boxSizing: 'border-box',
         padding: '0',
         margin: '0',
-        position: "fixed",
         bottom: 0,
         left: 0,
         width: '100%',

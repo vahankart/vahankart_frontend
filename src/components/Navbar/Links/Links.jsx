@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 import {makeStyles} from '@mui/styles'
 import PersonIcon from '@mui/icons-material/Person'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
@@ -65,7 +65,9 @@ function Links() {
                     badgeContent={4} 
                     classes={{ badge: classes.customBadge }}
                 >
-                    <ShoppingCartIcon />
+                    <Link to="/cart">
+                        <ShoppingCartIcon />
+                    </Link>
                 </Badge>
            </Grid>
 
