@@ -58,7 +58,6 @@ const SideNav =()=> {
             setmainView('favorite')
         }
     }
-    // console.log(mainView)
     return (
         <Root>
             <Nav>

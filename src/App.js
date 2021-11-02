@@ -1,6 +1,6 @@
 import { BrowserRouter as Router } from 'react-router-dom'
 import React from 'react'
-// import Footer from './components/Footer/Footer'
+import Footer from './components/Footer/Footer'
 import Navbar from './components/Navbar/Navbar'
 import SideNav from './components/SideNav/SideNav'
 

@@ -15,7 +15,7 @@ const Product = ()=>{
                     top: '20px',
                     left: '20px'
                 }}>
-                    <img src="https://picsum.photos/500/300?random=1" width="70px" height="70px"/>
+                    <img src="https://picsum.photos/500/300?random=1" width="70px" height="70px" alt="product"/>
                 </span>
                 <span style={{ 
                     position: 'relative',

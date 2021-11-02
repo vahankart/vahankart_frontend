@@ -4,6 +4,7 @@ const Root = styled.div`
     display: flex;
     flex-direction: row;
     height: 65vh;
+    width: 100%;
     @media only screen and (max-width: 500px){
         display: block;
     }

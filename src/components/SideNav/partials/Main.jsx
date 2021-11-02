@@ -1,4 +1,4 @@
-import react, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import MainStyle from "./main/Main"
 import FavoritesComponent from "./main/favorite/FavoriteComponent"
 import AccountInfo from "./main/Accountinfo/Accountinfo"

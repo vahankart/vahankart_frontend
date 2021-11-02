@@ -6,11 +6,14 @@ const ProductCard = styled.span`
     height: max-content;
     margin: 10px;
     box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+    @media only screen and (max-width: 1260px){
+        width: 350px;
+    }
     @media only screen and (max-width: 900px){
-        width: 310px;
+        width: 400px;
     }
     @media only screen and (max-width: 500px){
-        width: 310px;
+        width: 95%;
     }
 `
 
