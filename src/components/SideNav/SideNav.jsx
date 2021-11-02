@@ -11,8 +11,7 @@ import PersonIcon from '@mui/icons-material/Person'
 import BookIcon from '@mui/icons-material/Book'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import FavoriteIcon from '@mui/icons-material/Favorite'
-import SignoutIcon from '../../images/signout.svg'
-
+import ExitToAppIcon from '@mui/icons-material/ExitToApp'
 
 const SideNav =()=> {
     const [first, setfirst] = useState('top')
@@ -88,9 +87,9 @@ const SideNav =()=> {
                 </Wrapper>
                 <Signout>
                     <SpanText>
-                        <img src={SignoutIcon} alt='Signout'/>
+                        <ExitToAppIcon color="error" fontSize="small"/>
                     </SpanText>
-                    <SpanText>SIGN OUT</SpanText>
+                    <SpanText> SIGN OUT</SpanText>
                 </Signout>
             </Nav>
             <Main currentPage={mainView}/>
