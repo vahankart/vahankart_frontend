@@ -11,7 +11,7 @@ import Button from "@mui/material/Button"
 import ButtonWrapper from "./Buttonwrapper"
 const AccountInfo = ()=>{
     return(
-        <div style={{justifyContent: 'center'}}>
+        <div>
             <h1>User Information</h1>
             <Wrapper>
                 <InputGroup>

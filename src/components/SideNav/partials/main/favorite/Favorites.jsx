@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const Favorites = styled.div`
-    max-height: 70vh;
+    max-height: 60vh;
     overflow-y: auto;
     display: flex;
     flex-wrap: wrap;

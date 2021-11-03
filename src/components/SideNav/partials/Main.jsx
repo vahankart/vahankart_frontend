@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import MainStyle from "./main/Main"
 import FavoritesComponent from "./main/favorite/FavoriteComponent"
 import AccountInfo from "./main/Accountinfo/Accountinfo"
-
-
+import Address from './main/AdressBook/Address'
+import Order from './main/Order/Order'
 const Main = ({currentPage})=>{
     const [ MainView, setMainView] = useState(currentPage)
     useEffect(() => {
@@ -18,11 +18,13 @@ const Main = ({currentPage})=>{
          return(
             <FavoritesComponent />
          )
-     }else {
+     } else if(prop === 'address'){
          return(
-             <div>
-                 <h1>not yet made</h1>
-             </div>
+             <Address />
+         )
+     } else if(prop === 'order'){
+         return(
+            <Order />
          )
      }
     }
