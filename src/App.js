@@ -10,7 +10,7 @@ function App() {
       <div className="App">
         <Navbar />
         <SideNav />
-        {/* <Footer/> */}
+        <Footer/>
       </div>
     </Router>
   )
