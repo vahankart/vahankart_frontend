@@ -6,6 +6,11 @@ import {makeStyles} from '@mui/styles'
 const useStyles = makeStyles({
     backArrow:{
         margin:"0px 50px",
+    },
+    "@media screen and (max-width:480px)":{
+        hiddenInMobile:{
+            display:"none !important"
+        }
     }
 })
 
@@ -26,7 +31,7 @@ function BreadCrumb() {
     `
 
     return (
-        <BreadCrumb>
+        <BreadCrumb className={classes.hiddenInMobile}>
             <Backarrow className={classes.backArrow} />
             <Path>
                 Car Interiors / Seat Cover / PU Leather / Product Name

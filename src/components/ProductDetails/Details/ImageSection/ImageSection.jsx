@@ -2,6 +2,8 @@ import React,{useState} from 'react'
 import {makeStyles} from '@mui/styles'
 import styled from 'styled-components'
 import Grid from '@mui/material/Grid';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 
 const useStyles = makeStyles({
     allImages:{
@@ -28,8 +30,21 @@ const useStyles = makeStyles({
         width:"300px",
         height:"auto",
         marginLeft:"50%"
+    },
+    carousel:{
+        width:"100%",
+    },
+    visibleInMobile:{
+        display:"none"
+    },
+    "@media screen and (max-width:480px)":{
+        hiddenInMobile:{
+            display:"none !important"
+        },
+        visibleInMobile:{
+            display:"block"
+        }
     }
-
 })
 
 function ImageSection() {
@@ -59,7 +74,7 @@ function ImageSection() {
 
     return (
         <ImageSection>
-            <Grid container>
+            <Grid container className={classes.hiddenInMobile} >
                 <Grid item lg={6}>
                     <span className={classes.allImages}>
                         {Images.map((url,index)=>
@@ -73,6 +88,9 @@ function ImageSection() {
                     </span>
                 </Grid>
             </Grid>
+            <Carousel className={classes.visibleInMobile}>
+                {Images.map(image=><div><img src={image} alt={image}/></div>)}
+            </Carousel>
         </ImageSection>
     )
 }
