@@ -3,6 +3,7 @@ import React from 'react'
 import Footer from './components/Footer/Footer'
 import Navbar from './components/Navbar/Navbar'
 import SideNav from './components/SideNav/SideNav'
+import ProductDetails from './components/ProductDetails/ProductDetails'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <div className="App">
         <Navbar />
         <SideNav />
+        {/* <ProductDetails></ProductDetails> */}
         <Footer/>
       </div>
     </Router>

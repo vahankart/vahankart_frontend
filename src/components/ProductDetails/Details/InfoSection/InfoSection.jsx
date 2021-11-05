@@ -33,13 +33,14 @@ const QuantitySection = styled.div`
     margin-top:10px;
 `
 const QuantityButton = styled.button`
-    width:20px;
-    height:20px;
+    width:fit-content;
+    height:fit-content;
     margin:0px 5px;
+    cursor:pointer;
     color:${props=>props.add?"white":"black"};
     background-color:${props=>props.add?"red":"white"};
-    border:${props=>props.add?"none":"1px solid black"};
-    cursor:pointer;
+    border:${props=>props.add?"1px solid red":"1px solid black"};
+    margin-right:${props=>props.add?"20px":"5px"}
 `
 const AddToCart = styled.button`
     width:fit-content;
@@ -60,8 +61,19 @@ const useStyles = makeStyles({
     },
     vehicleSection:{
         display:"flex",
-        flexdirection:"row",
+        flexDirection:"row",
         marginBottom:"20px"
+    },
+    bottomSection:{
+        display:"flex",
+        flexDirection:"row",
+        justifycontent:"flex-start",
+        alignItems:"center"
+    },
+    "@media screen and (max-width:480px)":{
+        InfoSectionComponent:{
+            paddingLeft:"10px !important"
+        }
     }
 })
 
@@ -92,7 +104,7 @@ function InfoSection() {
     const handleAdd = ()=>{}
 
     return (
-        <InfoSectionComponent>
+        <InfoSectionComponent className={classes.InfoSectionComponent}>
             <p className={classes.productName}>{productName}</p>
             <Price original >${Number(originalPrice).toLocaleString()}</Price>
             <Price current>${Number(currentPrice).toLocaleString()}</Price>
@@ -102,18 +114,14 @@ function InfoSection() {
                     {vehicles.map(vehicle=> <Vehicle></Vehicle>)}
                 </span>
             </div>
-            <Grid container>
-                <Grid item lg={4} sm={12}>
-                    <QuantitySection>
-                        <QuantityButton subtract onClick={handleDecrease}>-</QuantityButton>
-                        {quantity}
-                        <QuantityButton add onClick={handleIncrease}>+</QuantityButton>
-                    </QuantitySection>
-                </Grid>
-                <Grid item lg={8} sm={12}>
-                    <AddToCart onClick={handleAdd}> <ShoppingCartOutlinedIcon/> Add To Cart</AddToCart>
-                </Grid>
-            </Grid>
+            <div className={classes.bottomSection}>
+                <QuantitySection>
+                    <QuantityButton subtract onClick={handleDecrease}>-</QuantityButton>
+                    {quantity}
+                    <QuantityButton add onClick={handleIncrease}>+</QuantityButton>
+                </QuantitySection>
+                <AddToCart onClick={handleAdd}> <ShoppingCartOutlinedIcon/> Add To Cart</AddToCart>
+            </div>
         </InfoSectionComponent>
     )
 }
