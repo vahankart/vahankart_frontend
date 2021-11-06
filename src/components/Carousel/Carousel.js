@@ -1,15 +1,16 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { SliderData } from './SliderData';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import FiberManualRecordTwoToneIcon from '@mui/icons-material/FiberManualRecordTwoTone';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
-import {makeStyles} from '@mui/styles';
-import {Typography} from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import { Typography } from '@mui/material';
+// import { keyframes } from '@mui/system';
 
 
 const useStyles = makeStyles(theme => ({
-    slider : {
+    slider: {
         position: "relative",
         height: "70vh",
         width: "60vw",
@@ -44,42 +45,59 @@ const useStyles = makeStyles(theme => ({
         userSelect: "none",
         color: "white"
     },
-    activeSlide : {
-        opacity: "1",
-        transitionDuration:"1s",
+    '@keyframes FadeOut': {
+        "0%": {
+            opacity: 1,
+            transitionDuration: "1s",
+        },
+        "100%": {
+            opacity: 0,
+            transitionDuration: "1s",
+        }
     },
-    slide : {
-        opacity: "0",
-        transitionDuration: "1s ease"
+    '@keyframes FadeIn': {
+        "0%": {
+            opacity: 0,
+        },
+        "100%": {
+            opacity: 1,
+        }
     },
-    containerDots:{
+    activeSlide: {
+        animation: "$FadeIn .5s ease-in",
+    },
+    slide: {
+        animation: "FadeOut .5s ease-out",
+    },
+    containerDots: {
         position: "absolute",
         bottom: "10px",
         left: "50%",
         transform: "translateX(-50%)",
-        display:"flex",
+        display: "flex",
         color: "white",
-        '& div svg':{
+        '& div svg': {
             width: "0.7em",
             height: "0.7em"
         }
     },
-    sliderBtn : {
+    sliderBtn: {
+        overflow: "hidden",
         position: "absolute",
         zIndex: "20",
         top: "67%",
         left: "10%",
-        padding:"1rem 4rem",
+        padding: "1rem 4rem",
         border: "2px solid white",
         fontWeight: "bold",
         transitionDuration: "0.5s",
-        '&:hover' : {
+        '&:hover': {
             background: "transparent",
             border: "2px solid white",
-            color: "white"
+            color: "white",
         }
     },
-    slideHeading:{
+    slideHeading: {
         position: "absolute",
         zIndex: "10",
         top: "30%",
@@ -98,7 +116,6 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-
 const ImageSlider = () => {
     const classes = useStyles();
     const [current, setCurrent] = useState(0);
@@ -116,51 +133,51 @@ const ImageSlider = () => {
         setCurrent(index);
     }
 
-    if(!Array.isArray(SliderData) || SliderData.length <= 0){
+    if (!Array.isArray(SliderData) || SliderData.length <= 0) {
         return null;
     }
 
     return (
         <div className={classes.slider}>
-            <NavigateBeforeIcon className={classes.leftArrow}  onClick={prevSlide}/>
-            <NavigateNextIcon className={classes.rightArrow} onClick={nextSlide}/>
+            <NavigateBeforeIcon className={classes.leftArrow} onClick={prevSlide} />
+            <NavigateNextIcon className={classes.rightArrow} onClick={nextSlide} />
             {SliderData.map((slide, index) => {
                 return (
                     index === current && (
                         <div className={index === current ? classes.activeSlide : classes.slide} key={index}>
                             <img src={slide.image} alt="image" className={classes.sliderImage} />
 
-                            <Typography 
-                            className={classes.slideHeading}
-                            variant="h2" 
-                            gutterBottom 
-                            component="div"
+                            <Typography
+                                className={classes.slideHeading}
+                                variant="h2"
+                                gutterBottom
+                                component="div"
                             >
-                            {slide.heading}
+                                {slide.heading}
                             </Typography>
 
                             <Typography
-                            className={classes.slideSubHeading} 
+                                className={classes.slideSubHeading}
                             >
-                            {slide.subheading}
+                                {slide.subheading}
                             </Typography>
 
                             {(slide.button !== "" && (
-                                <button className={classes.sliderBtn}>Buy now!</button>                        
+                                <button className={classes.sliderBtn}>Buy now!</button>
                             ))
                             }
                         </div>
                     )
-                        
+
                 )
             })}
-            <div className = {classes.containerDots}>
-                {Array.from({length: SliderData.length}).map((item, index) => (
+            <div className={classes.containerDots}>
+                {Array.from({ length: SliderData.length }).map((item, index) => (
                     <div
-                    key = {index}
-                    onClick={()=> moveDot(index)}
+                        key={index}
+                        onClick={() => moveDot(index)}
                     >
-                        {current === index ? <FiberManualRecordIcon /> : <FiberManualRecordTwoToneIcon / >}
+                        {current === index ? <FiberManualRecordIcon /> : <FiberManualRecordTwoToneIcon />}
                     </div>
                 ))}
             </div>
